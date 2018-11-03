@@ -1,9 +1,9 @@
 #include <max6675.h>
 
 #define MinTemp 30  // Минимальная (начальная) температура (°C)
-#define MaxTemp 40 // Максимальная температура (°C)
-#define StepTemp 30 // Шаг изменения температуры (°C)
-#define StepTime 1 // Время одного шага (min)
+#define MaxTemp 180 // Максимальная температура (°C)
+#define StepTemp 10 // Шаг изменения температуры (°C)
+#define StepTime 60 // Время одного шага (min)
 #define Heater 9 // Выход управления нагревателем 
 
 // Подключение датчика термопары
