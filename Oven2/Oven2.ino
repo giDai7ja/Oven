@@ -8,27 +8,12 @@
 #define DHTPIN 2   // Датчик DHT подключается к пину 2
 #define DHTTYPE    DHT11
 
-#if defined(ARDUINO_AVR_MEGA2560) // MEGA2560 pin assignments
-
-#define gaz 35   // Реле подачи газа
-#define iskra 30    // Реле поджига
-
-// 20 (SDA)
-// 21 (SCL)
-
-#elif defined(ARDUINO_AVR_PRO) // Pro Mini assignments
-
-#define gaz 9   // Реле подачи газа
+#define gaz 9      // Реле подачи газа
 #define iskra 8    // Реле поджига
 
 // Дисплей подключается по i2c
 // SDA - A4
 // SCL - A5
-
-#else
-#error Unsupported board selection.
-#endif
-
 
 LiquidCrystal_I2C _lcd1(0x27, 16, 2); // Подключаем LCD дисплей
 DHT_Unified dht(DHTPIN, DHTTYPE);
@@ -54,8 +39,11 @@ void setup()
   delay(10);                    // Подумаем о вечном 10ms
   _lcd1.init();                 // Инициализация LCD дисплея
   _lcd1.backlight();            // Видимо включаем подсветку
+  _lcd1.setCursor(9, 1);
+  _lcd1.print("Hello !");
 
   dht.begin();
+
 
   // Выходы
   digitalWrite(gaz, HIGH);  // Сразу выключаем
